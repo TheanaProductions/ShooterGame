@@ -12,7 +12,7 @@ local gfx <const> = pd.graphics
 
 local waitingToStartGame = true
 
-function initialize()
+local function initialize()
     player = Player(35, 120, 4, 3, 3)
     resetGame()
 end
