@@ -17,11 +17,6 @@ function initialize()
     resetGame()
 end
 
-function playdate.update()
-    gfx.sprite.update()
-    pd.timer.updateTimers()
-end
-
 function resetGame()
     waitingToStartGame = true
     stopSpawner()
@@ -35,3 +30,10 @@ function resetGame()
         print("Starting game!")
     end
 end
+
+function playdate.update()
+    gfx.sprite.update()
+    pd.timer.updateTimers()
+end
+
+initialize()
