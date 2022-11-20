@@ -6,6 +6,7 @@ import "CoreLibs/timer"
 import 'entity'
 import 'player'
 import 'enemySpawner'
+import 'scoreManager'
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
@@ -14,12 +15,14 @@ local waitingToStartGame
 
 local function initialize()
     player = Player(35, 120, 4, 3, 3)
+    createScoreUI()
     resetGame()
 end
 
 function resetGame()
     waitingToStartGame = true
     stopSpawner()
+    resetScore()
     player.health:resetHealth()
     player.canReceiveInput = false
     print("Paused Game...")

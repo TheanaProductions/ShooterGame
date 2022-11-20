@@ -30,6 +30,7 @@ function spawnEnemy()
     Enemy(430, spawnY, 4, 1.25, 1)
 end
 
+-- TODO : Fix this method (not working)
 function clearEnemy()
     local allSprites = gfx.sprite.getAllSprites()
     for index,sprite in ipairs(allSprites) do

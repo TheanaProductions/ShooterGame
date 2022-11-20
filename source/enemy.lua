@@ -1,4 +1,5 @@
-import ('healthManager')
+import 'healthManager'
+import 'scoreManager'
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
@@ -11,6 +12,7 @@ function Enemy:init(x, y, scale, speed, health)
     self:setZIndex(2)
     Enemy.super.init(self, x, y, scale, speed, health)
     self:setCollideRect(0, 0, self:getSize())
+    self.deathScore = 1
 end
 
 function Enemy:update()
@@ -30,6 +32,7 @@ end
 
 function Enemy:checkIfDead()
     if self.health:isDead() then
+        addScore(self.deathScore)
         self:remove()
     end
 end
