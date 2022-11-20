@@ -1,4 +1,4 @@
-import ('enemy')
+import 'entity/enemy'
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics

@@ -1,5 +1,5 @@
-import ('healthManager')
-import ('bullet')
+import 'healthManager'
+import 'projectiles/bullet'
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics

@@ -3,10 +3,10 @@ import "CoreLibs/graphics"
 import "CoreLibs/sprites"
 import "CoreLibs/timer"
 
-import 'entity'
-import 'player'
-import 'enemySpawner'
-import 'scoreManager'
+import 'entity/entity'
+import 'entity/player'
+import 'spawner/enemySpawner'
+import 'ui/scoreManager'
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
@@ -25,6 +25,7 @@ function resetGame()
     resetScore()
     player.health:resetHealth()
     player.canReceiveInput = false
+    -- TODO: Replace player at the starting position
     print("Paused Game...")
 end
 

@@ -1,5 +1,5 @@
 import 'healthManager'
-import 'scoreManager'
+import 'ui/scoreManager'
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
