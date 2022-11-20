@@ -1,3 +1,4 @@
+import 'entity/entity'
 import 'entity/enemy'
 
 local pd <const> = playdate

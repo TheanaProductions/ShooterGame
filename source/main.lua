@@ -3,42 +3,32 @@ import "CoreLibs/graphics"
 import "CoreLibs/sprites"
 import "CoreLibs/timer"
 
-import 'entity/entity'
-import 'entity/player'
+import 'scenes/sceneManager'
+import 'scenes/menuScene'
+
 import 'spawner/enemySpawner'
 import 'ui/scoreManager'
+import 'entity/entity'
+import 'entity/player'
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
-local waitingToStartGame
+SCENE_MANAGER = SceneManager()
 
-local function initialize()
-    player = Player(35, 120, 4, 3, 3)
-    createScoreUI()
-    resetGame()
+SCENE_MANAGER:switchScene(MenuScene)
+
+function playdate.update()
+    gfx.sprite.update()
+    pd.timer.updateTimers()
 end
 
-function resetGame()
+function gameOver()
     waitingToStartGame = true
     stopSpawner()
     resetScore()
     player.health:resetHealth()
     player.canReceiveInput = false
     -- TODO: Replace player at the starting position
-    print("Paused Game...")
+    print("Game Over...")
 end
-
-function playdate.update()
-    if waitingToStartGame and pd.buttonJustPressed(pd.kButtonB) then
-        startSpawner()
-        waitingToStartGame = false
-        player.canReceiveInput = true
-        print("Starting game!")
-    end
-
-    gfx.sprite.update()
-    pd.timer.updateTimers()
-end
-
-initialize()

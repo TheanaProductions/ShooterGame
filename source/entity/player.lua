@@ -38,6 +38,6 @@ end
 
 function Player:checkIfDead()
     if self.health:isDead() then
-        resetGame()
+        gameOver()
     end
 end
