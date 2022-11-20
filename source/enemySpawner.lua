@@ -19,14 +19,15 @@ function createTimer()
 end
 
 function stopSpawner()
+    clearEnemy()
     if spawnTimer then
-        spawnTimer.remove()
+        spawnTimer:remove()
     end
 end
 
 function spawnEnemy()
-    local spawnX = math.random(10, 230)
-    Enemy(spawnX, 430, 4, 1.25, 1)
+    local spawnY = math.random(10, 230)
+    Enemy(430, spawnY, 4, 1.25, 1)
 end
 
 function clearEnemy()

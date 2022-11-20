@@ -10,7 +10,7 @@ import 'enemySpawner'
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
-local waitingToStartGame = true
+local waitingToStartGame
 
 local function initialize()
     player = Player(35, 120, 4, 3, 3)
@@ -22,16 +22,17 @@ function resetGame()
     stopSpawner()
     player.health:resetHealth()
     player.canReceiveInput = false
-    print("You lost!")
-
-    if waitingToStartGame and pd.buttonJustPressed(pd.kButtonB) then
-        startSpawner()
-        waitingToStartGame = false
-        print("Starting game!")
-    end
+    print("Paused Game...")
 end
 
 function playdate.update()
+    if waitingToStartGame and pd.buttonJustPressed(pd.kButtonB) then
+        startSpawner()
+        waitingToStartGame = false
+        player.canReceiveInput = true
+        print("Starting game!")
+    end
+
     gfx.sprite.update()
     pd.timer.updateTimers()
 end

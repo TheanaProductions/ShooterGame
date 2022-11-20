@@ -8,6 +8,7 @@ class("Enemy").extends(Entity)
 function Enemy:init(x, y, scale, speed, health)
     local enemyImage = gfx.image.new("images/enemy")
     self:setImage(enemyImage)
+    self:setZIndex(2)
     Enemy.super.init(self, x, y, scale, speed, health)
     self:setCollideRect(0, 0, self:getSize())
 end
@@ -28,7 +29,7 @@ function Enemy:collisionResponse()
 end
 
 function Enemy:checkIfDead()
-    if self.health:checkHealth() then
+    if self.health:isDead() then
         self:remove()
     end
 end

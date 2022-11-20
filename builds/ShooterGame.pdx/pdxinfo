@@ -4,3 +4,5 @@ description=A simple shooter game for the Playdate console
 bundleID=com.theanaproductions.shootergame
 version=1.0.0
 buildNumber=1
+pdxversion=11200
+buildtime=722266702

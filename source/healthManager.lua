@@ -20,7 +20,7 @@ function HealthManager:winHealth(amount)
     end
 end
 
-function HealthManager:checkHealth()
+function HealthManager:isDead()
     if self.currentHealth <= 0 then
         return true
     end
