@@ -12,8 +12,8 @@ local gfx <const> = pd.graphics
 
 math.randomseed(playdate.getSecondsSinceEpoch())
 
-Player(35, 120, 4, 3)
-Enemy(425, 100, 4, 1)
+player = Player(35, 120, 4, 3, 3)
+Enemy(425, 100, 4, 1.5, 1)
 
 function playdate.update()
     gfx.sprite.update()
@@ -21,5 +21,5 @@ function playdate.update()
 end
 
 function resetGame()
-    print("You lost")
+    print("You lost!")
 end

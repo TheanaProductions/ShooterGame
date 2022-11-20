@@ -3,10 +3,10 @@ local gfx <const> = pd.graphics
 
 class("Player").extends(Entity)
 
-function Player:init(x, y, scale, speed)
+function Player:init(x, y, scale, speed, health)
     local playerImage = gfx.image.new("images/player")
     self:setImage(playerImage)
-    Player.super.init(self, x, y, scale, speed)
+    Player.super.init(self, x, y, scale, speed, health)
 end
 
 function Player:update()
