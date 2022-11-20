@@ -1,7 +1,7 @@
+import ('healthManager')
+
 local pd <const> = playdate
 local gfx <const> = pd.graphics
-
-import ('healthManager')
 
 class("Entity").extends(gfx.sprite)
 
@@ -19,4 +19,7 @@ function Entity:moveEntity(x, y, collissions)
     else
         self:moveBy(x * self.speed, y * self.speed)
     end
+end
+
+function Entity:checkIfDead()
 end

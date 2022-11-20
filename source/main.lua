@@ -5,15 +5,17 @@ import "CoreLibs/timer"
 
 import 'entity'
 import 'player'
-import 'enemy'
+import 'enemySpawner'
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
-math.randomseed(playdate.getSecondsSinceEpoch())
+local waitingToStartGame = true
 
-player = Player(35, 120, 4, 3, 3)
-Enemy(425, 100, 4, 1.5, 1)
+function initialize()
+    player = Player(35, 120, 4, 3, 3)
+    resetGame()
+end
 
 function playdate.update()
     gfx.sprite.update()
@@ -21,5 +23,15 @@ function playdate.update()
 end
 
 function resetGame()
+    waitingToStartGame = true
+    stopSpawner()
+    player.health:resetHealth()
+    player.canReceiveInput = false
     print("You lost!")
+
+    if waitingToStartGame and pd.buttonJustPressed(pd.kButtonB) then
+        startSpawner()
+        waitingToStartGame = false
+        print("Starting game!")
+    end
 end

@@ -10,19 +10,24 @@ end
 
 function HealthManager:loseHealth(amount)
     self.currentHealth -= amount
-    print("Lost " .. amount .. " health")
-
-    if self.currentHealth <= 0 then
-        resetGame()
-    end
 end
 
 function HealthManager:winHealth(amount)
     self.currentHealth += amount;
 
-    print("Won " .. amount .. " health")
-
     if self.currentHealth > self.maxHealth then
         self.currentHealth = self.maxHealth
     end
+end
+
+function HealthManager:checkHealth()
+    if self.currentHealth <= 0 then
+        return true
+    end
+
+    return false
+end
+
+function HealthManager:resetHealth()
+    self.currentHealth = self.maxHealth
 end
